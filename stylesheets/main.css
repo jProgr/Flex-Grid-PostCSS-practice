@@ -1,0 +1,220 @@
+:root
+{
+    /* Colors */
+    --main-color: snow;
+    --accent-color: #681714;
+    --background-color: #1a1a1a;
+    --overlay-color: rgba(0,0,0,.3);
+    /* Shades */
+    /* >0 darker, <=0 brighter */
+    --main-shade0-color: #fff;
+    --main-shade1-color: #faf2f3;
+    --main-shade2-color: #e9e4e4;
+    --main-shade3-color: #cec9c9;
+    --main-shade4-color: #aaa5a5;
+    --accent-shade0-color: #8e2420;
+
+    --page-width: 90vw;
+
+    --navbar-font-size: 16px;
+    --gutter-between-sections: 35px;
+    --ribbon-font-size: calc(var(--navbar-font-size) - 4px);
+    --overlay-title-font-size: 30px;
+    --overlay-subtitle-font-size: 10px;
+    --subscribe-label-font-size: var(--overlay-title-font-size);
+    --subscribe-input-font-size: calc(var(--subscribe-label-font-size) - 4px);
+    --footer-credits-font-size: var(--ribbon-font-size);
+}
+
+/* General */
+
+body
+{
+    background-color: var(--background-color);
+    color: var(--main-color);
+    font-family: sans-serif;
+}
+
+#container
+{
+    /*background-color: tomato;*/
+
+    margin: 5px auto;
+    margin-bottom: 0px;
+    width: var(--page-width);
+    max-width: 1300px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+a
+{
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+ul
+{
+    list-style: none;
+    display: block;
+}
+li { display: inline; }
+
+/* Header */
+
+.header {}
+
+.logo { margin: 0 auto; }
+/* For template purposes. Img or svg may replace this*/
+p.logo
+{
+    font-family: 'Bungee Shade';
+    font-size: 40px;
+    color: var(--main-color);
+    text-align: center;
+    background-color: var(--accent-color);
+    width: 11em;
+    padding: 1px;
+}
+
+.navbar
+{
+    margin-top: 30px;
+    margin-bottom: var(--gutter-between-sections);
+    text-align: right;
+    font-size: var(--navbar-font-size);
+}
+.navbar li
+{   
+    margin-right: .8em;
+    padding: 8px 10px;
+}
+.navbar li:first-child { background-color: var(--accent-color); }
+
+.ribbon
+{
+    background: linear-gradient(var(--main-shade2-color), var(--main-shade3-color));
+    font-size: var(--ribbon-font-size);
+    color: var(--main-shade4-color);
+    font-weight: bold;
+    letter-spacing: .2em;
+    padding: 10px 35px;
+}
+
+.accent-text { color: var(--accent-shade0-color); }
+
+.login
+{
+    display: inline;
+    float: right;
+}
+.login a { color: var(--main-shade4-color); }
+
+/* Main */
+
+.main
+{
+    background-color: var(--main-color);
+    padding-top: 5px;
+}
+
+/* Cover images */
+.flex-container
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.flex-container div.flex
+{
+    flex: auto;
+    width: 200px;
+    margin: 0;
+
+    position: relative; /* For overlay */
+}
+.flex-container div.flex img
+{ 
+    width: 100%; 
+    height: auto;
+}
+
+/* Overlay */
+.overlay
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Vertical centering of text */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* Styling */
+    background-color: var(--overlay-color);
+    color: var(--main-color);
+    text-align: center;
+}
+.title-overlay
+{
+    font-size: var(--overlay-title-font-size);
+    font-weight: bold;
+}
+.subtitle-overlay
+{
+    font-size: var(--overlay-subtitle-font-size);
+    text-transform: none;    
+}
+
+/* Footer */
+
+.footer
+{
+    background-color: var(--accent-color);
+    margin-top: var(--gutter-between-sections);
+    font-size: 20px;
+    text-transform: none;
+}
+
+.grid-container
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 70px 70px;
+    grid-template-areas: 
+        "subscribe subscribe links"
+        "credits   credits   links";
+}
+.subscribe-form
+{
+    grid-area: subscribe;
+    justify-self: left;
+    align-self: center;
+    padding: 10px 35px;
+    font-size: var(--subscribe-label-font-size);
+}
+.subscribe-input
+{
+    margin-left: 10px;
+    font-size: var(--subscribe-input-font-size);
+    font-family: 'Oswald', sans-serif;
+    border: none;
+}
+.footer-links
+{
+    grid-area: links;
+    justify-self: center;
+    padding: 10px 0px;
+}
+.footer-links li { display: block; }
+.footer-credits
+{
+    grid-area: credits;
+    justify-self: left;
+    align-self: end;
+    padding: 10px 35px;
+    font-size: var(--footer-credits-font-size);
+}
