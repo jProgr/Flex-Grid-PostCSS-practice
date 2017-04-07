@@ -15,14 +15,28 @@
     --accent-shade0-color: #8e2420;
 
     --page-width: 90vw;
+    --font-family: 'Oswald', sans-serif;
 
+    --center-block-element: 0 auto;
+
+    --navbar-alignment: right;
     --navbar-font-size: 16px;
+    --navbar-elements-gutter: .8em;
     --gutter-between-sections: 35px;
     --ribbon-font-size: calc(var(--navbar-font-size) - 4px);
+    --general-padding: 10px 35px;
     --overlay-title-font-size: 30px;
     --overlay-subtitle-font-size: 10px;
+    --footer-grid-columns: 1fr 1fr 1fr;
+    --footer-grid-rows: 70px 70px;
+    --footer-grid-areas:
+        "subscribe subscribe links"
+        "credits   credits   links";
     --subscribe-label-font-size: var(--overlay-title-font-size);
+    --subscribe-input-left-gutter: 10px;
     --subscribe-input-font-size: calc(var(--subscribe-label-font-size) - 4px);
+    --footer-links-spacing: 10px 0;
+    --footer-links-font-size: calc(var(--navbar-font-size) + 4px);;
     --footer-credits-font-size: var(--ribbon-font-size);
 }
 
@@ -37,13 +51,10 @@ body
 
 #container
 {
-    /*background-color: tomato;*/
-
-    margin: 5px auto;
-    margin-bottom: 0px;
+    margin: 5px auto 0px;
     width: var(--page-width);
     max-width: 1300px;
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-family);
     text-transform: uppercase;
 }
 
@@ -64,7 +75,7 @@ li { display: inline; }
 
 .header {}
 
-.logo { margin: 0 auto; }
+.logo { margin: var(--center-block-element); }
 /* For template purposes. Img or svg may replace this*/
 p.logo
 {
@@ -79,16 +90,18 @@ p.logo
 
 .navbar
 {
-    margin-top: 30px;
+    margin-top: var(--gutter-between-sections);
     margin-bottom: var(--gutter-between-sections);
-    text-align: right;
+    text-align: var(--navbar-alignment);
     font-size: var(--navbar-font-size);
 }
 .navbar li
 {   
-    margin-right: .8em;
+    margin-right: var(--navbar-elements-gutter);
     padding: 8px 10px;
 }
+/* Background hover animation related */
+.navbar li { padding: 8px 10px; }
 .navbar li:first-child { background-color: var(--accent-color); }
 
 .ribbon
@@ -98,7 +111,7 @@ p.logo
     color: var(--main-shade4-color);
     font-weight: bold;
     letter-spacing: .2em;
-    padding: 10px 35px;
+    padding: var(--general-padding);
 }
 
 .accent-text { color: var(--accent-shade0-color); }
@@ -175,39 +188,37 @@ p.logo
 {
     background-color: var(--accent-color);
     margin-top: var(--gutter-between-sections);
-    font-size: 20px;
     text-transform: none;
 }
 
 .grid-container
 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 70px 70px;
-    grid-template-areas: 
-        "subscribe subscribe links"
-        "credits   credits   links";
+    grid-template-columns: var(--footer-grid-columns);
+    grid-template-rows: var(--footer-grid-rows);
+    grid-template-areas: var(--footer-grid-areas);
 }
 .subscribe-form
 {
     grid-area: subscribe;
     justify-self: left;
     align-self: center;
-    padding: 10px 35px;
+    padding: var(--general-padding);
     font-size: var(--subscribe-label-font-size);
 }
 .subscribe-input
 {
-    margin-left: 10px;
+    margin-left: var(--subscribe-input-left-gutter);
     font-size: var(--subscribe-input-font-size);
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-family);
     border: none;
 }
 .footer-links
 {
     grid-area: links;
     justify-self: center;
-    padding: 10px 0px;
+    padding: var(--footer-links-spacing);
+    font-size: var(--footer-links-font-size);
 }
 .footer-links li { display: block; }
 .footer-credits
@@ -215,6 +226,6 @@ p.logo
     grid-area: credits;
     justify-self: left;
     align-self: end;
-    padding: 10px 35px;
+    padding: var(--general-padding);
     font-size: var(--footer-credits-font-size);
 }
