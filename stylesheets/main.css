@@ -170,6 +170,7 @@ p.logo
     background-color: var(--overlay-color);
     color: var(--main-color);
     text-align: center;
+    overflow: hidden;
 }
 .title-overlay
 {
