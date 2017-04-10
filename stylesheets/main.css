@@ -21,6 +21,7 @@
 
     --navbar-alignment: right;
     --navbar-font-size: 16px;
+    --navbar-display: block;
     --navbar-elements-gutter: .8em;
     --gutter-between-sections: 35px;
     --ribbon-font-size: calc(var(--navbar-font-size) - 4px);
@@ -35,8 +36,11 @@
     --subscribe-label-font-size: var(--overlay-title-font-size);
     --subscribe-input-left-gutter: 10px;
     --subscribe-input-font-size: calc(var(--subscribe-label-font-size) - 4px);
+    --footer-links-position: center;
     --footer-links-spacing: 10px 0;
-    --footer-links-font-size: calc(var(--navbar-font-size) + 4px);;
+    --footer-links-font-size: calc(var(--navbar-font-size) + 4px);
+    --big-screen-links-display: block;
+    --small-screen-links-display: none;
     --footer-credits-font-size: var(--ribbon-font-size);
 }
 
@@ -94,6 +98,7 @@ p.logo
     margin-bottom: var(--gutter-between-sections);
     text-align: var(--navbar-alignment);
     font-size: var(--navbar-font-size);
+    display: var(--navbar-display);
 }
 .navbar li
 {   
@@ -217,10 +222,12 @@ p.logo
 .footer-links
 {
     grid-area: links;
-    justify-self: center;
+    justify-self: var(--footer-links-position);
     padding: var(--footer-links-spacing);
     font-size: var(--footer-links-font-size);
 }
+.footer-links .big-screen-links { display: var(--big-screen-links-display); }
+.footer-links .small-screen-links { display: var(--small-screen-links-display); }
 .footer-links li { display: block; }
 .footer-credits
 {
@@ -230,3 +237,58 @@ p.logo
     padding: var(--general-padding);
     font-size: var(--footer-credits-font-size);
 }
+
+@media screen and (max-width: 1220px)
+{
+    :root
+    {
+        --navbar-alignment: center;
+        --navbar-font-size: 12px;
+        --overlay-title-font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1000px)
+{
+    :root
+    {
+        --page-width: 99vw;
+    }
+}
+
+@media screen and (max-width: 880px)
+{
+    :root
+    {
+        --navbar-font-size: 16px;   
+    }
+}
+
+@media screen and (max-width: 698px)
+{
+    :root
+    {
+        --overlay-title-font-size: 16px;  
+    }
+}
+
+@media screen and (max-width: 660px)
+{
+    :root
+    {
+        --navbar-display: none;
+        --general-padding: 10px;
+        --overlay-title-font-size: 16px;
+        --footer-grid-columns: 1fr;
+        --footer-grid-rows: 1fr;
+        --footer-grid-areas:
+            "subscribe"
+            "links"
+            "credits";
+        --footer-links-position: left;
+        --footer-links-spacing: var(--general-padding);
+        --big-screen-links-display: none;
+        --small-screen-links-display: block;
+    }
+}
+
