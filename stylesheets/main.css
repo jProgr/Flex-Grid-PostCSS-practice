@@ -24,6 +24,8 @@
     --navbar-display: block;
     --navbar-elements-gutter: .8em;
     --gutter-between-sections: 35px;
+    --side-notice-display: block;
+    --side-notice-label-font-size: calc(var(--navbar-font-size) - 2px);
     --ribbon-font-size: calc(var(--navbar-font-size) - 4px);
     --general-padding: 10px 35px;
     --overlay-title-font-size: 30px;
@@ -127,6 +129,24 @@ p.logo
     float: right;
 }
 .login a { color: var(--main-shade4-color); }
+
+/* Side notice label */
+
+.notice-label
+{
+    display: var(--side-notice-display);
+    position: absolute;
+    top: 18vh;
+    right: 35px;
+    background-color: var(--accent-color);
+    padding: var(--general-padding);
+    transform: rotate(-90deg);
+    transform-origin: 100% 0;
+    z-index: 100;
+    font-size: var(--side-notice-label-font-size);
+    color: var(--main-color);
+}
+.notice-label-text { text-transform: none; }
 
 /* Main */
 
@@ -244,6 +264,7 @@ p.logo
     {
         --navbar-alignment: center;
         --navbar-font-size: 12px;
+        --side-notice-display: none;
         --overlay-title-font-size: 20px;
     }
 }
