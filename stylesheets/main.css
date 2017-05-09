@@ -108,9 +108,12 @@ p.logo
     margin-right: var(--navbar-elements-gutter);
     padding: 8px 10px;
 }
-/* Background hover animation related */
+
 .navbar li { padding: 8px 10px; }
 .navbar li:first-child { background-color: var(--accent-color); }
+/* Background hover animation related */
+.navbar li { transition: background-color .2s ease-in; }
+.navbar li:hover { background-color: var(--accent-color); }
 
 .ribbon
 {
